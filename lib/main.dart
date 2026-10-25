@@ -11,9 +11,11 @@ class MiAplicacion extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Utilización de widgets',
+      title: 'Mi espacio estudiantil',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+        ),
         useMaterial3: true,
       ),
       home: const PantallaPrincipal(),
@@ -27,128 +29,103 @@ class PantallaPrincipal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('3.4. Utilización de widgets'),
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
-      ),
-      backgroundColor: const Color(0xFFF3F0FA),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
-
-          // Column organiza los elementos verticalmente.
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // Text muestra el título con formato.
-              const Text(
-                'Mi perfil de estudiante',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
-                ),
-              ),
-              const SizedBox(height: 24),
-              Center(
-                // Stack superpone el indicador sobre el avatar.
-                child: Stack(
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/fondo.png',
+              fit: BoxFit.cover,
+              excludeFromSemantics: true,
+            ),
+          ),
+          const Positioned.fill(
+            child: ColoredBox(
+              color: Color(0xAA311B92),
+            ),
+          ),
+          SafeArea(
+            child: Center(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(28),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Container configura tamaño, color y forma.
-                    Container(
-                      width: 120,
-                      height: 120,
-                      decoration: const BoxDecoration(
-                        color: Colors.deepPurple,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.person,
-                        size: 76,
+                    const Icon(
+                      Icons.school,
+                      size: 90,
+                      color: Colors.white,
+                      semanticLabel: 'Educación',
+                    ),
+                    const SizedBox(height: 24),
+                    const Text(
+                      'Mi espacio estudiantil',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 34,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),
-                    Positioned(
-                      right: 4,
-                      bottom: 4,
-                      child: Container(
-                        width: 26,
-                        height: 26,
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white, width: 3),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 24),
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Cynthia Jeanette Sánchez Rocha',
+                    const SizedBox(height: 24),
+                    const Text(
+                      'Hello World',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 21,
+                        fontSize: 28,
                         fontWeight: FontWeight.bold,
+                        color: Colors.amberAccent,
                       ),
                     ),
-                    SizedBox(height: 12),
-                    Text(
-                      'Licenciatura en Desarrollo de Sistemas Web',
-                      style: TextStyle(fontSize: 16),
+                    const SizedBox(height: 16),
+                    const Text(
+                      '¡Bienvenido a mi aplicación!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 22,
+                        color: Colors.white,
+                      ),
                     ),
-                    SizedBox(height: 20),
-
-                    // Row organiza el icono y el texto horizontalmente.
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(Icons.school, color: Colors.deepPurple),
-                        SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
+                    const SizedBox(height: 30),
+                    Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Column(
+                        children: [
+                          Text(
+                            'Cynthia Jeanette Sánchez Rocha',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.deepPurple,
+                            ),
+                          ),
+                          SizedBox(height: 12),
+                          Text(
+                            'Licenciatura en Desarrollo '
+                            'de Sistemas Web',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
                             'UDGVirtual',
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(
+                              color: Colors.deepPurple,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 12),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(Icons.phone_android, color: Colors.deepPurple),
-                        SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
-                            'Aprendiendo a crear aplicaciones con Flutter',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 24),
-              const Text(
-                'Widgets utilizados: Text, Row, Column, Stack y Container.',
-                textAlign: TextAlign.center,
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
